@@ -1,0 +1,19 @@
+# Maintainer: Dimitar Yurukov <mscalindt@protonmail.com>
+pkgname=sway-launcher-desktop
+pkgver=1.6.0_MS
+pkgrel=1
+pkgdesc="TUI Application launcher with Desktop Entry support."
+arch=('any')
+url="https://github.com/mscalindt/$pkgname"
+license=('GPL')
+depends=(fzf)
+optdepends=('ttf-nerd-fonts-symbols: for launcher icon symbols')
+source=("$pkgname-${pkgver//_/-}.tar.gz::$url/archive/refs/tags/${pkgver//_/-}.tar.gz")
+sha256sums=('7ba5ea1b62bbb2fd4d0e1b15430de92a35295af0911d3fb2ab28ec9d8bdeeadb')
+
+package() {
+	# sway-launcher-desktop.sh installed as /usr/bin/sway-launcher-desktop
+	cd "$pkgname-${pkgver//_/-}"
+	install -d "$pkgdir/usr/bin/"
+	install -m 755 "$pkgname.sh" "$pkgdir/usr/bin/$pkgname"
+}
