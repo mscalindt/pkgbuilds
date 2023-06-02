@@ -1,0 +1,25 @@
+# Maintainer: Dimitar Yurukov <mscalindt@protonmail.com>
+
+pkgname=evtest
+pkgver=1.35_MS
+pkgrel=1
+pkgdesc="Input device event monitor and query tool."
+arch=(x86_64)
+url="https://github.com/mscalindt/$pkgname"
+license=('GPL')
+depends=(glibc)
+makedepends=(asciidoc xmlto)
+source=("$pkgname-${pkgver//_/-}.tar.gz::$url/archive/refs/tags/${pkgver//_/-}.tar.gz")
+sha256sums=('220334fe95642e990181f79912881007e5e62ee39349b50f8d14b7f09ef0bfd6')
+
+build() {
+  cd "$pkgname-${pkgver//_/-}"
+  ./autogen.sh
+  ./configure --prefix=/usr 
+  make
+}
+
+package() {
+  cd "$pkgname-${pkgver//_/-}"
+  make DESTDIR="$pkgdir" install
+}
