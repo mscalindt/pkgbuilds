@@ -1,7 +1,7 @@
 # Maintainer: Dimitar Yurukov <mscalindt@protonmail.com>
 
 pkgname=evtest
-pkgver=1.35_MS
+pkgver=1.35_MS_2
 pkgrel=1
 pkgdesc="Input device event monitor and query tool."
 arch=(x86_64)
@@ -10,7 +10,7 @@ license=('GPL')
 depends=(glibc)
 makedepends=(asciidoc xmlto)
 source=("$pkgname-${pkgver//_/-}.tar.gz::$url/archive/refs/tags/${pkgver//_/-}.tar.gz")
-sha256sums=('220334fe95642e990181f79912881007e5e62ee39349b50f8d14b7f09ef0bfd6')
+sha256sums=('7dec7d3daa1896dc90258da3f00b37e6c53e35cabe220d7f051feef92eceb963')
 
 build() {
   cd "$pkgname-${pkgver//_/-}"
