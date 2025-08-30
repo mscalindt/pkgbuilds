@@ -1,7 +1,7 @@
 # Maintainer: Dimitar Yurukov <mscalindt@protonmail.com>
 
 pkgname=evtest
-pkgver=1.35_MS_2
+pkgver=1.36_MS
 pkgrel=1
 pkgdesc="Input device event monitor and query tool."
 arch=(x86_64)
@@ -9,17 +9,18 @@ url="https://github.com/mscalindt/$pkgname"
 license=('GPL')
 depends=(glibc)
 makedepends=(asciidoc xmlto)
-source=("$pkgname-${pkgver//_/-}.tar.gz::$url/archive/refs/tags/${pkgver//_/-}.tar.gz")
-sha256sums=('7dec7d3daa1896dc90258da3f00b37e6c53e35cabe220d7f051feef92eceb963')
+source=("$url/archive/refs/tags/$pkgname-${pkgver//_/-}.tar.gz")
+ILOVEMAKEPKG="$pkgname-$pkgname-${pkgver//_/-}"
+sha256sums=('63f674a30c3f4b3c3935f5c07f873412fb0553abd1920774febfef33f36c5a70')
 
 build() {
-  cd "$pkgname-${pkgver//_/-}"
+  cd "$ILOVEMAKEPKG"
   ./autogen.sh
   ./configure --prefix=/usr
   make
 }
 
 package() {
-  cd "$pkgname-${pkgver//_/-}"
+  cd "$ILOVEMAKEPKG"
   make DESTDIR="$pkgdir" install
 }
