@@ -1,14 +1,14 @@
 # Maintainer: Dimitar Yurukov <mscalindt@protonmail.com>
 
 pkgname=breeze-cursor
-pkgver=6.4.4
+pkgver=6.4.5
 pkgrel=1
 pkgdesc="KDE Plasma 6 'Breeze' independent cursor theme."
 arch=('any')
 license=('GPL-2.0-or-later')
 conflicts=('breeze')
 source=("http://download.kde.org/stable/plasma/${pkgver}/breeze-${pkgver}.tar.xz")
-sha256sums=('307cfcb5505bd376d959b364f5231cac4a280af938a938ce3a4e3b7a9f71f70d')
+sha256sums=('dcb8433d399511546958f4c8c1a8fae5ed22f2a698f053968d410ee75bd6d8b4')
 
 package() {
   install -dm755 "$pkgdir/usr/share/icons/"
